@@ -1,7 +1,7 @@
 baseURL : "https://thehumblescientist.github.io/"
 languageCode : en-us
 title : The Humble Scientist
-theme : https://github.com/adityatelange/hugo-PaperMod/tree/031e2ba57ea2b7b1de2e73c20bf2b5716f654fac
+theme : PaperMod
 
 params:
   # homeInfoParams:
