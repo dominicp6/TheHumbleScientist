@@ -1,0 +1,33 @@
+baseURL : "https://dominicp6.github.io/thehumblescientist.github.io/"
+languageCode : en-us
+title : The Humble Scientist
+theme : PaperMod
+
+params:
+  # homeInfoParams:
+  #   Title: "Hello Wanderer"
+  #   Content: "Welcome to my blog."
+  # socialIcons:
+  #   - name: 
+
+  cover:
+    linkFullImages: true
+
+  ShowBreadCrumbs: true
+
+  ShowReadingTime: true
+
+  ShowShareButtons: true
+
+  ShowPostNavLinks: true
+
+menu:
+  main:
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 10
