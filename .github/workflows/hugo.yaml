@@ -57,7 +57,7 @@ jobs:
           HUGO_ENV: production
         run: |
           hugo \
-            --theme PaperMod
+            --theme hugo-PaperMod
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"          
