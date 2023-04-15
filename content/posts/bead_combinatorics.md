@@ -56,7 +56,7 @@ $$
 \binom{W-1}{k-1}.
 $$
 
-The total number of possible arrangements, when the bead in position $1$ is black, is then
+The total number of possible arrangements is then the product of these two factors:
 
 $$
 \binom{B}{k}\binom{W-1}{k-1}.
@@ -72,7 +72,7 @@ $$
 
 **Putting it all together**
 
-Considering both cases, the total number of permissible arrangements is therefore
+Considering the contributions from Cases 1 and 2, the total number of arrangements is therefore
 
 $$
 \binom{B}{k}\binom{W-1}{k-1}+\binom{W}{k}\binom{B-1}{k-1}.
