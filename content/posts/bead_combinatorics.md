@@ -1,5 +1,5 @@
 ---
-title: "The Prayer Bead Conundrum"
+title: "The Prayer Bead Problem"
 date: 2023-04-09T09:47:33+01:00
 draft: false
 math: true
@@ -26,7 +26,7 @@ Give it a go! If you need hints or the solution, then scroll down when you're re
 
 **Hint 1**: This problem is not easy, so you might want to work through special cases with smaller numbers of beads first. Can you spot how the number of clusters of white beads is related to the number of clusters of black beads? Another tricky aspect of this problem is the circular arrangement. Solving the problem when they are arranged in a straight line is easier, and might provide useful insights. 
 
-**Hint 2**: Solving this problem will require experience in combinatoric formulas. If you think you need a refresher, then a good place to start would be to get familiar with the [Stars and Bars problem](https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)). You should try to think about how that formula might be relevant to this problem.
+**Hint 2**: Solving this problem will require experience in combinatoric formulas. If you think you need a refresher, then a good place to start would be to get familiar with the [Stars and Bars problem](https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)).
 
 **Hint 3**: When counting arrangements in these kinds of problems it can sometimes be useful to partition based on several special cases, to be examined separately. Finally, remember to look for ways that a particular arrangement can be decomposed into several "sub-arrangements". If you know how many of each sub-arrangement there are, then you can just multiply the combinatoric factors to arrive at the quantity of interest.
 
