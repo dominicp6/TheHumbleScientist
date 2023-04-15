@@ -8,39 +8,49 @@ cover:
     image: beads.jpg
 tags: ["combinatorics"]
 ---
-So you've studied probability. You know multinomials from binomials, permutations from combinations, and you compute odds of poker plays for fun and profit. Well, now it's time to put your knowledge to the test with this little conundrum. 
+Are you ready to put your probability skills to the test? In this little conundrum, you'll be challenged to think creatively and apply your knowledge to solve a combinatorics problem involving bead arrangements in a circle. It's tricky, but if you already know your multinomials from your binomials or your permutations from your combinations, then you have all the mathematical background necessary to give it a try! 
 
 ---
 
-### Problem
+### The Prayer Bead Problem
 
-*For seven days and nights you wander the foothills of the Himalayas. Delirious and low on supplies, you seek refuge in an ancient monastery perched precariously on the hillside. You approach the high wooden doors and knock. After a moment of silence the door creeks open. The face of an aged Tibetan sage greets you. He looks at you with an air of wisdom and curiosity, silently beckoning you to enter. The sage leads you to a small courtyard, sitting you down on a cushioned mat. You explain your desperate situation, and the sage listens intently. But he informs you that only the most worthy may receive shelter, and so he states your task:*
+*You are lost and hungry in the foothills of the Himalayas and seek refuge in an ancient monastery. The wise Tibetan monk who greets you offers you food and shelter, but only if you can solve a challenging problem:*
 
-> *Before you I present 50 prayer beads, 30 white and 20 black. These beads are to be arranged in a circle so that there are four clusters of black beads. If you find how many ways there are of doing this, then I will grant you food and shelter!*
+> *You have 50 prayer beads in two colors: 30 white and 20 black. You want to arrange them all in a circle so that there are exactly four groups of black beads (a group of black beads is a sequence of one or more black beads that are not separated by white beads). How many ways are there of doing this?*
 
-Just to be clear, by "a cluster of black beads", the sage means a continuous string of adjacent black beads on the circle without any intervening white beads.
+Give it a go! If you need hints or the solution, then scroll down when you're ready.
 
-So that's the conundrum! Give it a go and see how far you can get. Once you're ready, scroll down for the solution.
+---
+
+### Hints
+
+**Hint 1**: This problem is not easy, so you might want to work through special cases with smaller numbers of beads first. Can you spot how the number of clusters of white beads is related to the number of clusters of black beads? Another tricky aspect of this problem is the circular arrangement. Solving the problem when they are arranged in a straight line is easier, and might provide useful insights. 
+
+**Hint 2**: Solving this problem will require experience in combinatoric formulas. If you think you need a refresher, then a good place to start would be to get familiar with the [Stars and Bars problem](https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)). You should try to think about how that formula might be relevant to this problem.
+
+**Hint 3**: When counting arrangements in these kinds of problems it can sometimes be useful to partition based on several special cases, to be examined separately. Finally, remember to look for ways that a particular arrangement can be decomposed into several "sub-arrangements". If you know how many of each sub-arrangement there are, then you can just multiply the combinatoric factors to arrive at the quantity of interest.
 
 ---
 
 ### Solution
 
-Let's look at the general case: let $W$ be the number of white beads, $B$ the number of black beads, and $k$ the number of black clusters. For convenience, let's enumerate the positions the beads can take in the circle in clockwise order as position $1, 2, 3, $, and so on.
+Let's look at the general case: let $W$ be the number of white beads, $B$ the number of black beads, and $k$ the number of black clusters. We'll enumerate positions the beads take in the circle in clockwise order as $1, 2, 3$, and so on.
 
-To get started, we make an insightful observation: if we have $k$ clusters of black beads, then we also have $k$ clusters of white beads, since a white bead cluster must lie between every two black bead clusters, and we are putting these clusters on a circle. Make sure that you understand this before continuing!
+To get started, we make an insightful observation: if we have $k$ clusters of black beads, then we also have $k$ clusters of white beads, since a white bead cluster must lie between every two black bead clusters on the circle. The easiest way to convince yourself of this is by drawing some specific examples.
 
-Now we are ready to tackle the problem. Our general strategy will be to partition the set of possible configurations of black beads based on the bead in position $1$ being either black or white.
+We are now ready to tackle the problem and count the possible arrangements. As we will see, it will be necessary to partition the permitted arrangements based on whether the bead in position $1$ is either black (Case 1) or white (Case 2).
 
 **Case 1: The bead in position $1$ is black**
 
-First, we partition our $B$ black beads into $k$ clusters on the ring, such that there is at least one bead in each cluster. Note that this is a variant of the "stars and bars" problem in combinatorics, and the total number of ways of doing this is (try to verify this yourself):
+First, we imagine mentally partitioning our $B$ black beads into $k$ clusters on the ring, such that there is at least one bead in each cluster. We will ignore white beads and the exact positions of the clusters for now; simply note that the bead in position $1$ must be in one of the $k$ black clusters.
+
+Counting the number of ways of ordering just these black clusters in a ring (ignoring white clusters) is a variant of the [Stars and Bars problem](https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)) in combinatorics. You will need to adapt the standard formula a little bit to make it work on a circle, and you should then find that the total number of ways of ordering black clusters is:
 
 $$
 \binom{B}{k}.
 $$
 
-Next, we partition our remaining $W$ white beads into the $k$ 'gaps' between the black bead clusters. This is also (a slightly different) variant of the "stars and bars" problem, and the number of ways of doing this is:
+Next, we partition our remaining $W$ white beads into the $k$ 'gaps' between the black bead clusters. This is also (a slightly different) variant of the Stars and Bars problem, and the number of ways of doing this is (verify!):
 
 $$
 \binom{W-1}{k-1}.
@@ -68,15 +78,15 @@ $$
 \binom{B}{k}\binom{W-1}{k-1}+\binom{W}{k}\binom{B-1}{k-1}.
 $$
 
-In our problem involving the wise Tibetan sage, we have $W=30, B=20, k=4$. For which the total number of arrangements is
+In our problem involving the wise Tibetan monk, we have $W=30, B=20, k=4$. For which the total number of arrangements is
 
 
 $$
 \binom{20}{4}\binom{29}{3} + \binom{30}{4}\binom{19}{3} = 44, 259, 075.
 $$
 
-So, quite a lot!
+---
 
-Now, if you have gotten this far through the problem, you might be asking what exactly counts as a different arrangement. Here you may have noticed that we've taken the strictest interpretation by labelling distinct positions on the rings. But you might be in the camp that believes if we simply rotate the positions of all beads simultaneously, then this should count as the same arrangement. However, if we choose to do it this way, then we have to be a bit careful because different configurations have different degrees of rotational symmetry. In other words, we can't simply divide by $W + B$ and call it a day. I'll leave it to you to work out the details ;) 
+### But wait, there's more!
 
-Regardless of how we count, we certainly would have perished before completing the task if we had tried to enumerate every possibility! Our combinatorics skills have let us live another day.
+If you have got this far, you might ask what exactly counts as a different arrangement. In writing the solution above, we've taken the strictest interpretation and counted all arrangements as distinct so long as we don't have the same colour beads in every position. But you might instead claim, quite rightly, that if we simply rotate a particular configuration, then this should count as the same arrangement! This certainly reduces the number of arrangements, but you still have to be careful with the counting because different configurations can have different degrees of rotational symmetry. In other words, we can't simply divide our answer by the number of beads and call it a day. This is a classic example of how a seemingly simple problem can open up a Pandora's box of technicalities... I'll leave it to you to work out the details!
